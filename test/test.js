@@ -15,14 +15,23 @@ const resourceMap = {
     "vehicles": `${baseOrigin}vehicles/`,
     "starships": `${baseOrigin}starships/`
 };
-const resourceRequest = sinon.fake.resolves(resourceMap);
-
-const people = { results: [] };
-const peopleRequest = sinon.fake.resolves(people);
 
 describe('Testing SWAPI', function () {
-    describe('resources', function () {
+    let sandbox = null;
+    const _originGetResources = SWAPI.getResources;
+
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+    })
+
+    afterEach(() => {
+        sandbox.restore()
+    })
+
+    describe('Resources', function () {
         it('Send request with correct url', function () {
+            const resourceRequest = sinon.fake.resolves(resourceMap);
+
             const swapi = new SWAPI({
                 format,
                 baseOrigin,
@@ -38,23 +47,112 @@ describe('Testing SWAPI', function () {
         });
     });
 
-    describe('people', function () {
-        it('Send request with correct url', function () {
+    describe('People', () => {
+        it('Send request with correct url & return results of page1', async () => {
+            const people = { results: [] };
+            const peopleRequest = sinon.fake.resolves(people);
+
             const swapi = new SWAPI({
                 format,
                 baseOrigin,
-                request: resourceRequest
+                request: () => ({})
             });
-
+            sandbox.stub(SWAPI, 'getResources').resolves(resourceMap);
             swapi.option.request = peopleRequest;
-            swapi.people();
+            const result = await swapi.people();
 
-            peopleRequest.should.be.fulfilledWith(people);
-            // calledWith({
-            //     url: `${baseOrigin}people/`,
-            //     query: { format, page: 1 }
-            // });
+            result.should.be.equal(people);
+
+            peopleRequest.should.be.calledWith({
+                url: `${baseOrigin}people/`,
+                query: { format, page: 1 }
+            });
+        });
+
+        it('Send request with correct url & return specific results of input page', async () => {
+            const people = { results: [] };
+            const peopleRequest = sinon.fake.resolves(people);
+            const page = 10;
+            const swapi = new SWAPI({
+                format,
+                baseOrigin,
+                request: () => ({})
+            });
+            sandbox.stub(SWAPI, 'getResources').resolves(resourceMap);
+            swapi.option.request = peopleRequest;
+            const result = await swapi.people(page);
+
+            result.should.be.equal(people);
+
+            peopleRequest.should.be.calledWith({
+                url: `${baseOrigin}people/`,
+                query: { format, page: page }
+            });
+        });
+
+        it('Send request with correct url & return specific results of input URL', async () => {
+            const people = { results: [] };
+            const peopleRequest = sinon.fake.resolves(people);
+            const url = 'xxxxx';
+            const swapi = new SWAPI({
+                format,
+                baseOrigin,
+                request: () => ({})
+            });
+            sandbox.stub(SWAPI, 'getResources').resolves(resourceMap);
+            swapi.option.request = peopleRequest;
+            const result = await swapi.people(url);
+
+            result.should.be.equal(people);
+
+            peopleRequest.should.be.calledWith({
+                url,
+                query: { format, page: 1 }
+            });
         });
     });
 
+    describe('Person', () => {
+
+        it('Send request with correct url & return specific object with input ID', async () => {
+            const person = { id: 1 };
+            const personRequest = sinon.fake.resolves(person);
+            sandbox.stub(SWAPI, 'getResources').resolves(resourceMap);
+
+            const swapi = new SWAPI({
+                format,
+                baseOrigin,
+                request: () => ({})
+            });
+            swapi.option.request = personRequest;
+            const result = await swapi.person(person.id);
+
+            result.should.be.equal(person);
+
+            personRequest.should.be.calledWith({
+                url: `${baseOrigin}people/${person.id}/`,
+                query: { format }
+            });
+        });
+        it('Send request with correct url & return specific object with input URL', async () => {
+            const person = { url: 'xxx' };
+            const personRequest = sinon.fake.resolves(person);
+            sandbox.stub(SWAPI, 'getResources').resolves(resourceMap);
+
+            const swapi = new SWAPI({
+                format,
+                baseOrigin,
+                request: () => ({})
+            });
+            swapi.option.request = personRequest;
+            const result = await swapi.person(person.url);
+
+            result.should.be.equal(person);
+
+            personRequest.should.be.calledWith({
+                url: person.url,
+                query: { format }
+            });
+        });
+    });
 });
