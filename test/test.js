@@ -1,19 +1,60 @@
-var expect = require('expect.js');
+const sinon = require('sinon');
+const should = require('should');
+require('should-sinon');
 
-var base = require('../src/index.ts');
+const { default: SWAPI } = require('../src/index.ts');
 
-describe('单元测试', function() {
-    this.timeout(1000);
+const baseOrigin = 'https://swapi.xxx/';
+const format = 'json';
 
-    describe('功能1', function() {
-        it('相等', function() {
-            expect(base.name).to.equal('base');
+const resourceMap = {
+    "people": `${baseOrigin}people/`,
+    "planets": `${baseOrigin}planets/`,
+    "films": `${baseOrigin}films/`,
+    "species": `${baseOrigin}species/`,
+    "vehicles": `${baseOrigin}vehicles/`,
+    "starships": `${baseOrigin}starships/`
+};
+const resourceRequest = sinon.fake.resolves(resourceMap);
+
+const people = { results: [] };
+const peopleRequest = sinon.fake.resolves(people);
+
+describe('Testing SWAPI', function () {
+    describe('resources', function () {
+        it('Send request with correct url', function () {
+            const swapi = new SWAPI({
+                format,
+                baseOrigin,
+                request: resourceRequest
+            });
+
+            resourceRequest.should.be.calledWith({
+                url: `${baseOrigin}`,
+                query: { format }
+            });
+            // 'Should Use Cached ResourceMap'
+            SWAPI.getResources(swapi).should.be.fulfilledWith(resourceMap);
         });
     });
 
-    describe('功能2', function() {
-        it('不相等', function() {
-            expect(base.name).not.to.equal(1);
+    describe('people', function () {
+        it('Send request with correct url', function () {
+            const swapi = new SWAPI({
+                format,
+                baseOrigin,
+                request: resourceRequest
+            });
+
+            swapi.option.request = peopleRequest;
+            swapi.people();
+
+            peopleRequest.should.be.fulfilledWith(people);
+            // calledWith({
+            //     url: `${baseOrigin}people/`,
+            //     query: { format, page: 1 }
+            // });
         });
     });
+
 });
