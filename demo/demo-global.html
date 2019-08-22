@@ -1,16 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    <script src="../node_modules/es5-shim/es5-shim.js"></script>
-    <script src="../node_modules/es5-shim/es5-sham.js"></script>
-    
-    <script src="../dist/index.aio.js"></script>
-    <script>
-        console.log(window['swapi-typescript'].name);
-    </script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script src="../node_modules/es5-shim/es5-shim.js"></script>
+        <script src="../node_modules/es5-shim/es5-sham.js"></script>
+
+        <script src="../dist/index.aio.js"></script>
+        <script>
+            function request(params) {
+                const separator = params.url.indexOf('?') > 0 ? '&' : '?';
+                const url = Object.keys(params.query).reduce(
+                    (href, key) => `${href}&${key}=${params.query[key]}`,
+                    `${params.url}${separator}`
+                );
+                return fetch(url)
+                    .then(res => res.json())
+                    .catch(error => {
+                        console.error('Network Error', error);
+                    });
+            }
+
+            console.log(window['SWAPI']);
+            const swapi = new SWAPI({
+                format: 'json',
+                baseOrigin: 'https://swapi.co/api/',
+                request
+            });
+
+            swapi.resources().then(res => {
+                console.log('resources', res);
+            });
+
+            swapi.people().then(res => {
+                console.log('people', res);
+            });
+
+            swapi.person(1).then(res => {
+                console.log('person 1', res);
+            });
+        </script>
+    </body>
 </html>

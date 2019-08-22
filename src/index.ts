@@ -1,18 +1,81 @@
-import { B, yan } from './test2';
+/*
+ * @Date: 2019-08-22 14:40:00
+ * @LastEditTime: 2019-08-22 15:39:48
+ * @Description: 
+ * @Author: Zhen
+ * @LastEditors: Zhen
+ */
 
-import yan2 from './test2';
+import ResourceMap from './models/ResourceMap';
+import PagedResults from './models/PagedResults';
 
-console.log(yan);
-console.log(yan2);
+import People from './models/People';
 
-const a = 1 + 1;
-const b = a;
-console.log(a);
-console.log(b);
-console.log(B);
+type Format = 'wookiee' | 'json';
 
-export function greeter(person: string): string {
-    return 'Hello, ' + person;
+export interface Option {
+    format?: Format;
+    /**
+     * `Default`: https://swapi.co/api/
+     */
+    baseOrigin?: string;
+    request<T>(params: { url: string; query?: { [key: string]: string | number } }): Promise<T>;
 }
 
-export const name = 'base';
+const defaultOption = {
+    format: 'json',
+    baseOrigin: 'https://swapi.co/api/'
+};
+
+const weakMap = new WeakMap<SWAPI, { option: Option; requestResources: Promise<ResourceMap> }>();
+
+class SWAPI {
+    option: Option;
+    static getResources(instance: SWAPI) {
+        const privateFields = weakMap.get(instance);
+        return privateFields.requestResources;
+    }
+
+    constructor(option: Option) {
+        this.option = Object.assign({}, defaultOption, option);
+        const requestResources = this.resources();
+        weakMap.set(this, { option: option, requestResources });
+    }
+
+    resources(query?: { format?: Format }) {
+        return this.option.request<ResourceMap>({
+            url: this.option.baseOrigin,
+            query: {
+                format: this.option.format,
+                ...query
+            }
+        });
+    }
+
+    async people(input?: number | string) {
+        const resourceMap = await SWAPI.getResources(this);
+        const page = typeof input === 'number' ? input : 1;
+        const url = typeof input === 'string' ? input : `${resourceMap.people}`;
+        return this.option.request<PagedResults<People>>({
+            url,
+            query: {
+                format: this.option.format,
+                page
+            }
+        });
+    }
+
+    async person(input: number | string) {
+        const resourceMap = await SWAPI.getResources(this);
+        const id = typeof input === 'number' ? input : 0;
+        const url = typeof input === 'string' ? input : `${resourceMap.people}${id}/`;
+        return this.option.request<People>({
+            url,
+            query: {
+                format: this.option.format,
+            }
+        });
+    }
+}
+
+export default SWAPI;

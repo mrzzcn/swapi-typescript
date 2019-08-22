@@ -1,2 +1,3 @@
-var base = require('../dist/index.js');
+const base = require('../dist/index.js');
+
 console.log(base.name);
