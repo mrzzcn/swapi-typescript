@@ -27,7 +27,7 @@ const defaultOption = {
     baseOrigin: 'https://swapi.co/api/'
 };
 
-const weakMap = new WeakMap<SWAPI, { option: Option; requestResources: Promise<ResourceMap> }>();
+const weakMap = new WeakMap<SWAPI, { requestResources: Promise<ResourceMap> }>();
 
 class SWAPI {
     option: Option;
@@ -39,10 +39,10 @@ class SWAPI {
     constructor(option: Option) {
         this.option = Object.assign({}, defaultOption, option);
         const requestResources = this.resources();
-        weakMap.set(this, { option: option, requestResources });
+        weakMap.set(this, { requestResources });
     }
 
-    resources(query?: { format?: Format }) {
+    async resources(query?: { format?: Format }) {
         return this.option.request<ResourceMap>({
             url: this.option.baseOrigin,
             query: {
