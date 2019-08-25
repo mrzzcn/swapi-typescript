@@ -9,7 +9,7 @@
 export enum ResourceType {
   Film = 'films',
   People = 'people',
-  Plant = 'planets',
+  Planet = 'planets',
   Species = 'species',
   Starship = 'starships',
   Vehicle = 'vehicles'

@@ -37,8 +37,26 @@ export const Film = {
     url: '链接'
 };
 
+export const Planet = {
+    name: '名称',
+    rotation_period: '自转周期',
+    orbital_period: '公转周期',
+    diameter: '直径',
+    climate: '气候',
+    gravity: '重力',
+    terrain: '地形',
+    surface_water: '地表水',
+    population: '人口',
+    residents: '产生的角色',
+    films: '出现影片',
+    created: '录入时间',
+    edited: '更新时间',
+    url: '链接'
+};
+
 export default {
     format,
     People,
-    Film
+    Film,
+    Planet,
 };

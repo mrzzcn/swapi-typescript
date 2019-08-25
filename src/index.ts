@@ -10,13 +10,14 @@ import PagedResults from './models/PagedResults';
 import Resource, { ResourceType } from './models/Base';
 import People from './models/People';
 import Film from './models/Film';
+import Planet from './models/Planet';
 
 export type Format = 'wookiee' | 'json';
 
 type ResourceUrlMap = {
     [ResourceType.Film]: string;
     [ResourceType.People]: string;
-    [ResourceType.Plant]: string;
+    [ResourceType.Planet]: string;
     [ResourceType.Species]: string;
     [ResourceType.Starship]: string;
     [ResourceType.Vehicle]: string;
@@ -103,7 +104,7 @@ class SWAPI {
     }
 
     /**
-     * get paged people
+     * get paged `people`
      * @param input Page(`default` 1) or Full Url(https://swapi.co/api/people/?page=1)
      */
     async people(input?: number | string) {
@@ -111,7 +112,7 @@ class SWAPI {
     }
 
     /**
-     * get single people
+     * get single `people`
      * @param input ID(1) or Full Url(https://swapi.co/api/people/1/)
      */
     async person(input?: number | string) {
@@ -119,7 +120,7 @@ class SWAPI {
     }
 
     /**
-     * get paged films
+     * get paged `films`
      * @param input Page(`default` 1) or Full Url(https://swapi.co/api/films/?page=1)
      */
     async films(input?: number | string) {
@@ -127,11 +128,27 @@ class SWAPI {
     }
 
     /**
-     * get single film
+     * get single `film`
      * @param input ID(1) or Full Url(https://swapi.co/api/films/1/)
      */
     async film(input?: number | string) {
         return this.resource<Film>(ResourceType.Film, input);
+    }
+
+    /**
+     * get paged `planets`
+     * @param input Page(`default` 1) or Full Url(https://swapi.co/api/planets/?page=1)
+     */
+    async planets(input?: number | string) {
+        return this.resources<Planet>(ResourceType.Planet, input);
+    }
+
+    /**
+     * get single `planet`
+     * @param input ID(1) or Full Url(https://swapi.co/api/planets/1/)
+     */
+    async planet(input?: number | string) {
+        return this.resource<Planet>(ResourceType.Planet, input);
     }
 }
 
