@@ -1,12 +1,13 @@
 /*
  * @Date: 2019-08-22 15:17:20
- * @LastEditTime: 2019-08-22 15:17:36
+ * @LastEditTime: 2019-08-25 15:26:08
  * @Description: 
  * @Author: Zhen
  * @LastEditors: Zhen
  */
+import Resource from './Base';
 
-export default interface People {
+export default interface People extends Resource {
   birth_year: string;
   created: string;
   edited: string;
@@ -21,6 +22,5 @@ export default interface People {
   skin_color: string;
   species: string[];
   starships: string[];
-  url: string;
   vehicles: string[];
 }; // eslint-disable-line
