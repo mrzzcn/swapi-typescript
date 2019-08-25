@@ -3,6 +3,7 @@ const should = require('should');
 require('should-sinon');
 
 const { default: SWAPI } = require('../src/index.ts');
+const { ResourceType } = require('../src/models/base');
 
 const baseOrigin = 'https://swapi.xxx/';
 const format = 'json';
@@ -28,7 +29,7 @@ describe('Testing SWAPI', function () {
         sandbox.restore()
     })
 
-    describe('Resources', function () {
+    describe('Resource Url Map', function () {
         it('Send request with correct url', function () {
             const resourceRequest = sinon.fake.resolves(resourceMap);
 
@@ -47,9 +48,15 @@ describe('Testing SWAPI', function () {
         });
     });
 
-    describe('People', () => {
-        it('Send request with correct url & return results of page1', async () => {
-            const people = { results: [] };
+    describe('Resources', () => {
+        it('Send request with correct url & return results of page 1', async () => {
+            const people = {
+                results: [
+                    { url: 'https://swapi.co/api/planets/0/' },
+                    { url: 'https://swapi.co/api/planets/1/' },
+                    { url: 'https://swapi.co/api/planets/2/' },
+                ]
+            };
             const peopleRequest = sinon.fake.resolves(people);
 
             const swapi = new SWAPI({
@@ -62,7 +69,9 @@ describe('Testing SWAPI', function () {
             const result = await swapi.people();
 
             result.should.be.equal(people);
-
+            result.results.forEach((item) => {
+                should.equal(item.id, `people-${item.url.split('/').reverse()[1]}`)
+            });
             peopleRequest.should.be.calledWith({
                 url: `${baseOrigin}people/`,
                 query: { format, page: 1 }
@@ -112,10 +121,11 @@ describe('Testing SWAPI', function () {
         });
     });
 
-    describe('Person', () => {
-
+    describe('Single Resource', () => {
         it('Send request with correct url & return specific object with input ID', async () => {
-            const person = { id: 1 };
+            const id = 100;
+            const url = 'https://swapi.co/api/planets/100/';
+            const person = { url };
             const personRequest = sinon.fake.resolves(person);
             sandbox.stub(SWAPI, 'getResources').resolves(resourceMap);
 
@@ -125,17 +135,18 @@ describe('Testing SWAPI', function () {
                 request: () => ({})
             });
             swapi.option.request = personRequest;
-            const result = await swapi.person(person.id);
+            const result = await swapi.person(id);
 
             result.should.be.equal(person);
 
             personRequest.should.be.calledWith({
-                url: `${baseOrigin}people/${person.id}/`,
+                url: `${baseOrigin}people/${id}/`,
                 query: { format }
             });
         });
         it('Send request with correct url & return specific object with input URL', async () => {
-            const person = { url: 'xxx' };
+            const url = 'https://swapi.co/api/planets/100/';
+            const person = { url };
             const personRequest = sinon.fake.resolves(person);
             sandbox.stub(SWAPI, 'getResources').resolves(resourceMap);
 
