@@ -1,6 +1,6 @@
 export const format = 'json';
 
-const People = {
+export const People = {
     id: 'ID',
     name: 'Name',
     height: 'Height',
@@ -17,14 +17,28 @@ const People = {
     starships: 'Starships',
     created: 'Created',
     edited: 'Edited',
-    url: 'Url'
+    url: 'URL'
 };
 
-export {
-    People
+export const Film = {
+    title: 'Title',
+    episode_id: 'Episode#', // eslint-disable-line @typescript-eslint/camelcase
+    opening_crawl: 'Opening Crawl', // eslint-disable-line @typescript-eslint/camelcase
+    director: 'Director',
+    producer: 'Producer',
+    release_date: 'Release Date', // eslint-disable-line @typescript-eslint/camelcase
+    characters: 'Characters',
+    planets: 'Planets',
+    starships: 'Starships',
+    vehicles: 'Vehicles',
+    species: 'Species',
+    created: 'Created',
+    edited: 'Edited',
+    url: 'URL'
 };
 
 export default {
     format,
-    People
+    People,
+    Film
 };

@@ -9,6 +9,7 @@
 import PagedResults from './models/PagedResults';
 import Resource, { ResourceType } from './models/Base';
 import People from './models/People';
+import Film from './models/Film';
 
 export type Format = 'wookiee' | 'json';
 
@@ -101,12 +102,36 @@ class SWAPI {
         return model;
     }
 
+    /**
+     * get paged people
+     * @param input Page(`default` 1) or Full Url(https://swapi.co/api/people/?page=1)
+     */
     async people(input?: number | string) {
         return this.resources<People>(ResourceType.People, input);
     }
 
+    /**
+     * get single people
+     * @param input ID(1) or Full Url(https://swapi.co/api/people/1/)
+     */
     async person(input?: number | string) {
         return this.resource<People>(ResourceType.People, input);
+    }
+
+    /**
+     * get paged films
+     * @param input Page(`default` 1) or Full Url(https://swapi.co/api/films/?page=1)
+     */
+    async films(input?: number | string) {
+        return this.resources<Film>(ResourceType.Film, input);
+    }
+
+    /**
+     * get single film
+     * @param input ID(1) or Full Url(https://swapi.co/api/films/1/)
+     */
+    async film(input?: number | string) {
+        return this.resource<Film>(ResourceType.Film, input);
     }
 }
 
