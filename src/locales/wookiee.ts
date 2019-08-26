@@ -41,13 +41,13 @@ export const Film = {
 
 export const Planet = {
     name: 'Whrascwo',
-    rotation_period: 'Rcooaoraaoahoowh Akworcahoowa',
-    orbital_period: 'Oorcrhahaoraan Akworcahoowa',
+    rotation_period: 'Rcooaoraaoahoowh Akworcahoowa', // eslint-disable-line @typescript-eslint/camelcase
+    orbital_period: 'Oorcrhahaoraan Akworcahoowa', // eslint-disable-line @typescript-eslint/camelcase
     diameter: 'Waahrascwoaoworc',
     climate: 'Oaanahscraaowo',
     gravity: 'Rrrcrahoahaoro',
     terrain: 'Aoworcrcraahwh',
-    surface_water: 'Churcwwraoawo Ohraaoworc',
+    surface_water: 'Churcwwraoawo Ohraaoworc', // eslint-disable-line @typescript-eslint/camelcase
     population: 'Akooakhuanraaoahoowh',
     residents: 'Rcwocahwawowhaoc',
     films: 'Wwahanscc',
@@ -60,14 +60,35 @@ export const Species = {
     name: 'Whrascwo',
     classification: 'Oaanraccahwwahoaraaoahoowh',
     designation: 'Wawocahrrwhraaoahoowh',
-    average_height: 'Rahoworcrarrwo Acwoahrracao',
-    skin_colors: 'Corahwh Oaooanoorcc',
-    hair_colors: 'Acraahrc Oaooanoorcc',
-    eye_colors: 'Worowo Oaooanoorcc',
-    average_lifespan: 'Rahoworcrarrwo Anahwwwocakrawh',
+    average_height: 'Rahoworcrarrwo Acwoahrracao', // eslint-disable-line @typescript-eslint/camelcase
+    skin_colors: 'Corahwh Oaooanoorcc', // eslint-disable-line @typescript-eslint/camelcase
+    hair_colors: 'Acraahrc Oaooanoorcc', // eslint-disable-line @typescript-eslint/camelcase
+    eye_colors: 'Worowo Oaooanoorcc', // eslint-disable-line @typescript-eslint/camelcase
+    average_lifespan: 'Rahoworcrarrwo Anahwwwocakrawh', // eslint-disable-line @typescript-eslint/camelcase
     homeworld: 'Acooscwoohoorcanwa',
     language: 'Anrawhrrhurarrwo',
     people: 'Akwoooakanwo',
+    films: 'Wwahanscc',
+    created: 'Oarcworaaowowa',
+    edited: 'Wowaahaowowa',
+    url: 'Hurcan'
+};
+
+export const Starship = {
+    name: 'Whrascwo',
+    model: 'Scoowawoan',
+    manufacturer: 'Scrawhhuwwraoaaohurcworc',
+    cost_in_credits: 'Oaoocao Ahwh Oarcwowaahaoc', // eslint-disable-line @typescript-eslint/camelcase
+    length: 'Anwowhrraoac',
+    max_atmosphering_speed: 'Scrak Raaoscoocakacworcahwhrr Cakwowowa', // eslint-disable-line @typescript-eslint/camelcase
+    crew: 'Oarcwooh',
+    passengers: 'Akraccwowhrrworcc',
+    cargo_capacity: 'Oararcrroo Oaraakraoaahaoro', // eslint-disable-line @typescript-eslint/camelcase
+    consumables: 'Oaoowhchuscrarhanwoc',
+    hyperdrive_rating: 'Acroakworcwarcahhowo Rcraaoahwhrr', // eslint-disable-line @typescript-eslint/camelcase
+    MGLT: 'MGLT',
+    starship_class: 'Caorarccacahak Oaanracc', // eslint-disable-line @typescript-eslint/camelcase
+    pilots: 'Akahanooaoc',
     films: 'Wwahanscc',
     created: 'Oarcworaaowowa',
     edited: 'Wowaahaowowa',
@@ -80,4 +101,5 @@ export default {
     Film,
     Planet,
     Species,
+    Starship,
 };

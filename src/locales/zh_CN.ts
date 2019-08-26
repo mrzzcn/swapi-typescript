@@ -39,13 +39,13 @@ export const Film = {
 
 export const Planet = {
     name: '名称',
-    rotation_period: '自转周期',
-    orbital_period: '公转周期',
+    rotation_period: '自转周期', // eslint-disable-line @typescript-eslint/camelcase
+    orbital_period: '公转周期', // eslint-disable-line @typescript-eslint/camelcase
     diameter: '直径',
     climate: '气候',
     gravity: '重力',
     terrain: '地形',
-    surface_water: '地表水',
+    surface_water: '地表水', // eslint-disable-line @typescript-eslint/camelcase
     population: '人口',
     residents: '产生的角色',
     films: '出现影片',
@@ -58,14 +58,35 @@ export const Species = {
     name: '物种名称',
     classification: '种类',
     designation: '特质',
-    average_height: '平均身高',
-    skin_colors: '肤色',
-    hair_colors: '发色',
-    eye_colors: '眼球颜色',
-    average_lifespan: '平均寿命',
+    average_height: '平均身高', // eslint-disable-line @typescript-eslint/camelcase
+    skin_colors: '肤色', // eslint-disable-line @typescript-eslint/camelcase
+    hair_colors: '发色', // eslint-disable-line @typescript-eslint/camelcase
+    eye_colors: '眼球颜色', // eslint-disable-line @typescript-eslint/camelcase
+    average_lifespan: '平均寿命', // eslint-disable-line @typescript-eslint/camelcase
     homeworld: '母星',
     language: '语言',
     people: '包含角色',
+    films: '出现影片',
+    created: '录入时间',
+    edited: '更新时间',
+    url: '链接'
+};
+
+export const Starship = {
+    name: '舰名',
+    model: '型号',
+    manufacturer: '制造商',
+    cost_in_credits: '价格', // eslint-disable-line @typescript-eslint/camelcase
+    length: '长度',
+    max_atmosphering_speed: '最高速度', // eslint-disable-line @typescript-eslint/camelcase
+    crew: '舰员',
+    passengers: '乘客',
+    cargo_capacity: '载重', // eslint-disable-line @typescript-eslint/camelcase
+    consumables: '耗材可供应',
+    hyperdrive_rating: '超级驱动器状态', // eslint-disable-line @typescript-eslint/camelcase
+    MGLT: 'MGLT',
+    starship_class: '星舰等级', // eslint-disable-line @typescript-eslint/camelcase
+    pilots: '飞行员',
     films: '出现影片',
     created: '录入时间',
     edited: '更新时间',
@@ -78,4 +99,5 @@ export default {
     Film,
     Planet,
     Species,
+    Starship,
 };

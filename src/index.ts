@@ -12,6 +12,7 @@ import People from './models/People';
 import Film from './models/Film';
 import Planet from './models/Planet';
 import Species from './models/Species';
+import Starship from './models/Starship';
 
 export type Format = 'wookiee' | 'json';
 
@@ -166,6 +167,22 @@ class SWAPI {
      */
     async species(input?: number | string) {
         return this.resource<Species>(ResourceType.Species, input);
+    }
+
+    /**
+     * get paged `starships`
+     * @param input Page(`default` 1) or Full Url(https://swapi.co/api/starships/?page=1)
+     */
+    async starships(input?: number | string) {
+        return this.resources<Starship>(ResourceType.Starship, input);
+    }
+
+    /**
+     * get single `starship`
+     * @param input ID(2) or Full Url(https://swapi.co/api/starships/2/)
+     */
+    async starship(input?: number | string) {
+        return this.resource<Starship>(ResourceType.Starship, input);
     }
 }
 
