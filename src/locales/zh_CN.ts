@@ -82,10 +82,29 @@ export const Starship = {
     crew: '舰员',
     passengers: '乘客',
     cargo_capacity: '载重', // eslint-disable-line @typescript-eslint/camelcase
-    consumables: '耗材可供应',
+    consumables: '燃料可用时间',
     hyperdrive_rating: '超级驱动器状态', // eslint-disable-line @typescript-eslint/camelcase
     MGLT: 'MGLT',
     starship_class: '星舰等级', // eslint-disable-line @typescript-eslint/camelcase
+    pilots: '驾驶员',
+    films: '出现影片',
+    created: '录入时间',
+    edited: '更新时间',
+    url: '链接'
+};
+
+export const Vehicle = {
+    name: '舰名',
+    model: '型号',
+    manufacturer: '制造商',
+    cost_in_credits: '价格', // eslint-disable-line @typescript-eslint/camelcase
+    length: '长度',
+    max_atmosphering_speed: '最高速度', // eslint-disable-line @typescript-eslint/camelcase
+    crew: '舰员',
+    passengers: '乘客',
+    cargo_capacity: '载重', // eslint-disable-line @typescript-eslint/camelcase
+    consumables: '燃料可用时间',
+    vehicle_class: '等级', // eslint-disable-line @typescript-eslint/camelcase
     pilots: '飞行员',
     films: '出现影片',
     created: '录入时间',
@@ -100,4 +119,5 @@ export default {
     Planet,
     Species,
     Starship,
+    Vehicle
 };

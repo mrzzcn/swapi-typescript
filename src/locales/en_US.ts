@@ -93,6 +93,25 @@ export const Starship = {
     url: 'URL'
 };
 
+export const Vehicle = {
+    name: 'Name',
+    model: 'Model',
+    manufacturer: 'Manufacturer',
+    cost_in_credits: 'Cost in Credits', // eslint-disable-line @typescript-eslint/camelcase
+    length: 'Length',
+    max_atmosphering_speed: 'Max Atmosphering Speed', // eslint-disable-line @typescript-eslint/camelcase
+    crew: 'Crew',
+    passengers: 'Passengers',
+    cargo_capacity: 'Cargo Capacity', // eslint-disable-line @typescript-eslint/camelcase
+    consumables: 'Consumables',
+    vehicle_class: 'Vehicle Class', // eslint-disable-line @typescript-eslint/camelcase
+    pilots: 'Pilots',
+    films: 'Films',
+    created: 'Created',
+    edited: 'Edited',
+    url: 'URL'
+};
+
 export default {
     format,
     People,
@@ -100,4 +119,5 @@ export default {
     Planet,
     Species,
     Starship,
+    Vehicle
 };

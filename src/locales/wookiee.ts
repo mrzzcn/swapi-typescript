@@ -95,6 +95,25 @@ export const Starship = {
     url: 'Hurcan'
 };
 
+export const Vehicle = {
+    name: 'Whrascwo',
+    model: 'Scoowawoan',
+    manufacturer: 'Scrawhhuwwraoaaohurcworc',
+    cost_in_credits: 'Oaoocao Ahwh Oarcwowaahaoc', // eslint-disable-line @typescript-eslint/camelcase
+    length: 'Anwowhrraoac',
+    max_atmosphering_speed: 'Scrak Raaoscoocakacworcahwhrr Cakwowowa', // eslint-disable-line @typescript-eslint/camelcase
+    crew: 'Oarcwooh',
+    passengers: 'Akraccwowhrrworcc',
+    cargo_capacity: 'Oararcrroo Oaraakraoaahaoro', // eslint-disable-line @typescript-eslint/camelcase
+    consumables: 'Oaoowhchuscrarhanwoc',
+    vehicle_class: 'Howoacahoaanwo Oaanracc', // eslint-disable-line @typescript-eslint/camelcase
+    pilots: 'Akahanooaoc',
+    films: 'Wwahanscc',
+    created: 'Oarcworaaowowa',
+    edited: 'Wowaahaowowa',
+    url: 'Hurcan'
+};
+
 export default {
     format,
     People,
@@ -102,4 +121,5 @@ export default {
     Planet,
     Species,
     Starship,
+    Vehicle
 };
