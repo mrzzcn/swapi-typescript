@@ -13,8 +13,8 @@ export const People = {
     homeworld: '故乡',
     films: '参演影片',
     species: '所属物种',
-    vehicles: '坐骑',
-    starships: '飞船',
+    vehicles: '交通工具',
+    starships: '拥有星舰',
     created: '录入时间',
     edited: '更新时间',
     url: '链接'
@@ -23,7 +23,7 @@ export const People = {
 export const Film = {
     title: '片名',
     episode_id: '剧集编号', // eslint-disable-line @typescript-eslint/camelcase
-    opening_crawl: '剧情梗概', // eslint-disable-line @typescript-eslint/camelcase
+    opening_crawl: '故事背景', // eslint-disable-line @typescript-eslint/camelcase
     director: '导演',
     producer: '制片人',
     release_date: '上映日期', // eslint-disable-line @typescript-eslint/camelcase
@@ -47,7 +47,7 @@ export const Planet = {
     terrain: '地形',
     surface_water: '地表水', // eslint-disable-line @typescript-eslint/camelcase
     population: '人口',
-    residents: '产生的角色',
+    residents: '角色',
     films: '出现影片',
     created: '录入时间',
     edited: '更新时间',
@@ -65,7 +65,7 @@ export const Species = {
     average_lifespan: '平均寿命', // eslint-disable-line @typescript-eslint/camelcase
     homeworld: '母星',
     language: '语言',
-    people: '包含角色',
+    people: '角色',
     films: '出现影片',
     created: '录入时间',
     edited: '更新时间',
