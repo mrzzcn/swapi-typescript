@@ -11,6 +11,7 @@ import Resource, { ResourceType } from './models/Base';
 import People from './models/People';
 import Film from './models/Film';
 import Planet from './models/Planet';
+import Species from './models/Species';
 
 export type Format = 'wookiee' | 'json';
 
@@ -149,6 +150,22 @@ class SWAPI {
      */
     async planet(input?: number | string) {
         return this.resource<Planet>(ResourceType.Planet, input);
+    }
+
+    /**
+     * get paged `species`
+     * @param input Page(`default` 1) or Full Url(https://swapi.co/api/species/?page=1)
+     */
+    async speciesList(input?: number | string) {
+        return this.resources<Species>(ResourceType.Species, input);
+    }
+
+    /**
+     * get single `species`
+     * @param input ID(1) or Full Url(https://swapi.co/api/species/1/)
+     */
+    async species(input?: number | string) {
+        return this.resource<Species>(ResourceType.Species, input);
     }
 }
 

@@ -54,9 +54,28 @@ export const Planet = {
     url: '链接'
 };
 
+export const Species = {
+    name: '物种名称',
+    classification: '种类',
+    designation: '特质',
+    average_height: '平均身高',
+    skin_colors: '肤色',
+    hair_colors: '发色',
+    eye_colors: '眼球颜色',
+    average_lifespan: '平均寿命',
+    homeworld: '母星',
+    language: '语言',
+    people: '包含角色',
+    films: '出现影片',
+    created: '录入时间',
+    edited: '更新时间',
+    url: '链接'
+};
+
 export default {
     format,
     People,
     Film,
     Planet,
+    Species,
 };

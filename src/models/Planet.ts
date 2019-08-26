@@ -1,4 +1,4 @@
-import Resource from './Base';
+import Resource, { ResourceUrl } from './Base';
 
 export default interface Planet extends Resource {
     name: string;
@@ -10,6 +10,6 @@ export default interface Planet extends Resource {
     terrain: string;
     surface_water: string;
     population: string;
-    residents: string[];
-    films: string[];
-}
+    residents: ResourceUrl[];
+    films: ResourceUrl[];
+}; // eslint-disable-line

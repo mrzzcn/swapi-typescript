@@ -15,8 +15,15 @@ export enum ResourceType {
   Vehicle = 'vehicles'
 }
 
+/**
+ * ResourceUrl String
+ * 
+ * e.g. "https://swapi.co/api/people/1/",
+ */
+export type ResourceUrl = string;
+
 export default interface Resource {
-  url: string;
+  url: ResourceUrl;
   id: string;
   /**
    * "2014-12-09T13:50:51.644000Z"

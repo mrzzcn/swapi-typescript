@@ -54,9 +54,28 @@ export const Planet = {
     url: 'URL'
 };
 
+export const Species = {
+    name: 'Name',
+    classification: 'Classification',
+    designation: 'Designation',
+    average_height: 'Average Height',
+    skin_colors: 'Skin Colors',
+    hair_colors: 'Hair Colors',
+    eye_colors: 'Eye Colors',
+    average_lifespan: 'Average Lifespan',
+    homeworld: 'Homeworld',
+    language: 'Language',
+    people: 'People',
+    films: 'Films',
+    created: 'Created',
+    edited: 'Edited',
+    url: 'URL'
+};
+
 export default {
     format,
     People,
     Film,
     Planet,
+    Species,
 };

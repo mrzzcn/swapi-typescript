@@ -5,12 +5,12 @@
  * @Author: Zhen
  * @LastEditors: Zhen
  */
-import Resource from './Base';
+import Resource, { ResourceUrl } from './Base';
 
 export default interface People extends Resource {
     birth_year: string;
     eye_color: string;
-    films: string[];
+    films: ResourceUrl[];
     gender: string;
     hair_color: string;
     height: string;
@@ -18,7 +18,7 @@ export default interface People extends Resource {
     mass: string;
     name: string;
     skin_color: string;
-    species: string[];
-    starships: string[];
-    vehicles: string[];
+    species: ResourceUrl[];
+    starships: ResourceUrl[];
+    vehicles: ResourceUrl[];
 }; // eslint-disable-line

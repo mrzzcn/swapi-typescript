@@ -1,3 +1,4 @@
+// cSpell: disable
 export const format = 'Wookiee';
 
 export const People = {
@@ -55,9 +56,28 @@ export const Planet = {
     url: 'Hurcan'
 };
 
+export const Species = {
+    name: 'Whrascwo',
+    classification: 'Oaanraccahwwahoaraaoahoowh',
+    designation: 'Wawocahrrwhraaoahoowh',
+    average_height: 'Rahoworcrarrwo Acwoahrracao',
+    skin_colors: 'Corahwh Oaooanoorcc',
+    hair_colors: 'Acraahrc Oaooanoorcc',
+    eye_colors: 'Worowo Oaooanoorcc',
+    average_lifespan: 'Rahoworcrarrwo Anahwwwocakrawh',
+    homeworld: 'Acooscwoohoorcanwa',
+    language: 'Anrawhrrhurarrwo',
+    people: 'Akwoooakanwo',
+    films: 'Wwahanscc',
+    created: 'Oarcworaaowowa',
+    edited: 'Wowaahaowowa',
+    url: 'Hurcan'
+};
+
 export default {
     format,
     People,
     Film,
     Planet,
+    Species,
 };

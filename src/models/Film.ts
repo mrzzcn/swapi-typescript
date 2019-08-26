@@ -1,4 +1,4 @@
-import Resource from './Base';
+import Resource, { ResourceUrl } from './Base';
 
 export default interface Film extends Resource {
     title: string;
@@ -7,9 +7,9 @@ export default interface Film extends Resource {
     director: string;
     producer: string;
     release_date: string;
-    characters: string[];
-    planets: string[];
-    starships: string[];
-    vehicles: string[];
-    species: string[];
+    characters: ResourceUrl[];
+    planets: ResourceUrl[];
+    starships: ResourceUrl[];
+    vehicles: ResourceUrl[];
+    species: ResourceUrl[];
 }; // eslint-disable-line
