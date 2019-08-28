@@ -26,6 +26,11 @@ type ResourceUrlMap = {
     [ResourceType.Vehicle]: string;
 }
 
+export interface RequestParams {
+    url: string;
+    query?: { [key: string]: string | number };
+}
+
 /**
  * Get Id from URL
  * @param url https://swapi.co/api/planets/1/
@@ -42,7 +47,7 @@ export interface Option {
      * `Default`: https://swapi.co/api/
      */
     baseOrigin?: string;
-    request<T>(params: { url: string; query?: { [key: string]: string | number } }): Promise<T>;
+    request<T>(params: RequestParams): Promise<T>;
 }
 
 const defaultOption = {
