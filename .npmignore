@@ -1,13 +1,11 @@
-node_modules
+.*
 config
+coverage
 demo
+doc
+node_modules
 src
 test
-.babelrc
-.editorconfig
-.eslintrc.js
-.travis.yml
-.istanbul.yml
 CHANGELOG.md
 CHANGELOG.zh-CN.md
 package-lock.json
@@ -15,3 +13,4 @@ rename.js
 TODO.md
 tsconfig.json
 tslint.json
+yarn.lock
