@@ -1,6 +1,6 @@
-# 计划列表
+# TODO
 
-- [ ] API
-- [ ] Label & Locale
-- [ ] Document
+- [x] API
+- [x] Label & Locale
+- [x] Document
 - [ ] Test
