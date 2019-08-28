@@ -123,7 +123,7 @@ class SWAPI {
      * get single `people`
      * @param input ID(1) or Full Url(https://swapi.co/api/people/1/)
      */
-    async person(input?: number | string) {
+    async person(input: number | string) {
         return this.resource<People>(ResourceType.People, input);
     }
 
@@ -139,7 +139,7 @@ class SWAPI {
      * get single `film`
      * @param input ID(1) or Full Url(https://swapi.co/api/films/1/)
      */
-    async film(input?: number | string) {
+    async film(input: number | string) {
         return this.resource<Film>(ResourceType.Film, input);
     }
 
@@ -155,7 +155,7 @@ class SWAPI {
      * get single `planet`
      * @param input ID(1) or Full Url(https://swapi.co/api/planets/1/)
      */
-    async planet(input?: number | string) {
+    async planet(input: number | string) {
         return this.resource<Planet>(ResourceType.Planet, input);
     }
 
@@ -171,7 +171,7 @@ class SWAPI {
      * get single `species`
      * @param input ID(1) or Full Url(https://swapi.co/api/species/1/)
      */
-    async species(input?: number | string) {
+    async species(input: number | string) {
         return this.resource<Species>(ResourceType.Species, input);
     }
 
@@ -187,7 +187,7 @@ class SWAPI {
      * get single `starship`
      * @param input ID(2) or Full Url(https://swapi.co/api/starships/2/)
      */
-    async starship(input?: number | string) {
+    async starship(input: number | string) {
         return this.resource<Starship>(ResourceType.Starship, input);
     }
 
@@ -203,7 +203,7 @@ class SWAPI {
      * get single `vehicle`
      * @param input ID(4) or Full Url(https://swapi.co/api/vehicles/4/)
      */
-    async vehicle(input?: number | string) {
+    async vehicle(input: number | string) {
         return this.resource<Vehicle>(ResourceType.Vehicle, input);
     }
 }
