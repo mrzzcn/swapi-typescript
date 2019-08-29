@@ -1,6 +1,6 @@
 {
   "name": "swapi-typescript",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Typescript Client of SWAPI",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
