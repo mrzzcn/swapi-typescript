@@ -1,5 +1,5 @@
 # Welcome to swapi-typescript 👋
-![Version](https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-0.0.2-blue.svg?cacheSeconds=2592000)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](./doc/api.md)
 [![Twitter: mrzhangzhen](https://img.shields.io/twitter/follow/mrzhangzhen.svg?style=social)](https://twitter.com/mrzhangzhen)
 
