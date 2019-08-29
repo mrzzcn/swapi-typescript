@@ -2,7 +2,6 @@
 config
 coverage
 demo
-doc
 node_modules
 src
 test
